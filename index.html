@@ -184,8 +184,8 @@
                     >Our Rooms</a
                   >
                   <a
-                    class="btn btn-light py-md-3 px-md-5 animated slideInRight"
                     href="./booking.html"
+                    class="btn btn-light py-md-3 px-md-5 animated slideInRight"
                     >Book A Room</a
                   >
                 </div>
@@ -241,20 +241,30 @@
                     </div>
                   </div>
                   <div class="col-md-2">
-                    <div class="date" id="date2" data-target-input="nearest">
-                      <input
-                        type="text"
-                        class="form-control datetimepicker-input"
-                        placeholder="Room Type"
-                      />
+                    <div class="roontype" id="room-type">
+                      <select
+                        name="room_type"
+                        id="room_type"
+                        class="form-control"
+                        required
+                      >
+                        <option value="" disabled selected>
+                          Select Room Type
+                        </option>
+                        <option value="suite">Suite</option>
+                        <option value="Executive Room">Executive Room</option>
+                        <option value="Standard Room">Standard Room</option>
+                      </select>
                     </div>
                   </div>
                   <div class="col-md-2">
                     <div class="date" id="date2" data-target-input="nearest">
                       <input
                         type="number"
-                        class="form-control datetimepicker-input"
+                        class="form-control"
                         placeholder="Number of Guest"
+                        min="1"
+                        required
                       />
                     </div>
                   </div>
@@ -264,6 +274,8 @@
                         type="number"
                         class="form-control datetimepicker-input"
                         placeholder="Adults"
+                        min="1"
+                        required
                       />
                     </div>
                   </div>
@@ -273,6 +285,8 @@
                         type="number"
                         class="form-control datetimepicker-input"
                         placeholder="Children"
+                        min="1"
+                        required
                       />
                     </div>
                   </div>
