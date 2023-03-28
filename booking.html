@@ -232,14 +232,21 @@
                         <label for="email">Phone Number</label>
                       </div>
                     </div>
-                    <div class="col-12">
-                      <div class="form-floating">
-                        <select class="form-select" id="select3" required>
-                          <option value="2">Room 1</option>
-                          <option value="3">Room 2</option>
-                          <option value="4">Room 3</option>
+                    <div class="col-md-12">
+                      <div class="roontype" id="room-type">
+                        <select
+                          name="room_type"
+                          id="room_type"
+                          class="form-control"
+                          required
+                        >
+                          <option value="" disabled selected>
+                            Select Room Type
+                          </option>
+                          <option value="suite">Suite</option>
+                          <option value="Executive Room">Executive Room</option>
+                          <option value="Standard Room">Standard Room</option>
                         </select>
-                        <label for="select3">Room Type</label>
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -255,6 +262,7 @@
                           placeholder="Check In"
                           data-target="#date3"
                           data-toggle="datetimepicker"
+                          v
                           min="<?php echo date('Y-m-d'); ?>"
                           required
                           onchange="document.getElementById('departure_date').setAttribute('min', this.value);"
@@ -321,13 +329,10 @@
                         <label for="email">Children</label>
                       </div>
                     </div>
-
-                    <div class="col-12">
-                      <a
-                        class="btn btn-primary w-100 py-3"
-                        href="./booking-details.html"
-                        >Book Now</a
-                      >
+                    <div class="col-md-12">
+                      <button class="btn btn-primary w-100" type="submit">
+                        Submit
+                      </button>
                     </div>
                   </div>
                 </form>
@@ -459,6 +464,27 @@
     <script>
       var today = new Date().toISOString().split("T")[0];
       document.getElementById("arrival_date").setAttribute("min", today);
+    </script>
+
+    <script>
+      document
+        .getElementById("reservation-form")
+        .addEventListener("submit", function (event) {
+          var numGuests = parseInt(
+            document.getElementById("number_of_guests").value
+          );
+
+          var numAdults = parseInt(document.getElementById("adults").value);
+          var numChildren = parseInt(document.getElementById("children").value);
+
+          if (numAdults + numChildren !== numGuests) {
+            event.preventDefault();
+            alert(
+              "Number of adults and children must be equal to the total number of guests."
+            );
+            window.location.href = "./";
+          }
+        });
     </script>
 
     <!-- Template Javascript -->

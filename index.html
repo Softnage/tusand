@@ -230,8 +230,6 @@
                         class="form-control datetimepicker-input"
                         id="arrival_date"
                         placeholder="Check in"
-                        data-target="#date1"
-                        data-toggle="datetimepicker"
                         min="<?php echo date('Y-m-d'); ?>"
                         required
                         onchange="document.getElementById('departure_date').setAttribute('min', this.value);"
@@ -246,8 +244,6 @@
                         class="form-control datetimepicker-input"
                         placeholder="Check out"
                         id="departure_date"
-                        data-target="#date2"
-                        data-toggle="datetimepicker"
                         required
                         onfocus="(this.type='date', this.value='')"
                       />

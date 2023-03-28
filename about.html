@@ -165,7 +165,12 @@
       >
         <div class="container">
           <div class="bg-white shadow" style="padding: 35px">
-            <div class="row g-2">
+            <form
+              class="row g-2"
+              id="reservation-form"
+              action="./booking-details.html"
+              method="GET"
+            >
               <div class="col-md-10">
                 <div class="row g-2">
                   <div class="col-md-2">
@@ -173,65 +178,90 @@
                       <input
                         type="text"
                         class="form-control datetimepicker-input"
+                        id="arrival_date"
                         placeholder="Check in"
-                        data-target="#date1"
-                        data-toggle="datetimepicker"
+                        min="<?php echo date('Y-m-d'); ?>"
+                        required
+                        onchange="document.getElementById('departure_date').setAttribute('min', this.value);"
+                        onfocus="(this.type='date', this.value='')"
                       />
                     </div>
                   </div>
                   <div class="col-md-2">
-                    <div class="date" id="date2" data-target-input="nearest">
+                    <div class="date" data-target-input="nearest">
                       <input
                         type="text"
                         class="form-control datetimepicker-input"
                         placeholder="Check out"
-                        data-target="#date2"
-                        data-toggle="datetimepicker"
+                        id="departure_date"
+                        required
+                        onfocus="(this.type='date', this.value='')"
                       />
                     </div>
                   </div>
                   <div class="col-md-2">
-                    <div class="date" id="date2" data-target-input="nearest">
-                      <input
-                        type="text"
-                        class="form-control datetimepicker-input"
-                        placeholder="Room Type"
-                      />
+                    <div class="roontype" id="room-type">
+                      <select
+                        name="room_type"
+                        id="room_type"
+                        class="form-control"
+                        required
+                      >
+                        <option value="" disabled selected>
+                          Select Room Type
+                        </option>
+                        <option value="suite">Suite</option>
+                        <option value="Executive Room">Executive Room</option>
+                        <option value="Standard Room">Standard Room</option>
+                      </select>
                     </div>
                   </div>
                   <div class="col-md-2">
-                    <div class="date" id="date2" data-target-input="nearest">
+                    <div>
                       <input
                         type="number"
-                        class="form-control datetimepicker-input"
+                        class="form-control"
+                        id="number_of_guests"
                         placeholder="Number of Guest"
+                        min="1"
+                        required
                       />
                     </div>
                   </div>
                   <div class="col-md-2">
-                    <div class="date" id="date2" data-target-input="nearest">
+                    <div>
                       <input
                         type="number"
                         class="form-control datetimepicker-input"
                         placeholder="Adults"
+                        id="adults"
+                        name="number_of_adults"
+                        min="0"
+                        required
                       />
                     </div>
                   </div>
                   <div class="col-md-2">
-                    <div class="date" id="date2" data-target-input="nearest">
+                    <div>
                       <input
                         type="number"
                         class="form-control datetimepicker-input"
                         placeholder="Children"
+                        id="children"
+                        name="number_of_children"
+                        min="0"
+                        required
                       />
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-md-2">
-                <button class="btn btn-primary w-100">Submit</button>
+                <button class="btn btn-primary w-100" type="submit">
+                  Submit
+                </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -456,6 +486,32 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <script>
+      var today = new Date().toISOString().split("T")[0];
+      document.getElementById("arrival_date").setAttribute("min", today);
+    </script>
+
+    <script>
+      document
+        .getElementById("reservation-form")
+        .addEventListener("submit", function (event) {
+          var numGuests = parseInt(
+            document.getElementById("number_of_guests").value
+          );
+
+          var numAdults = parseInt(document.getElementById("adults").value);
+          var numChildren = parseInt(document.getElementById("children").value);
+
+          if (numAdults + numChildren !== numGuests) {
+            event.preventDefault();
+            alert(
+              "Number of adults and children must be equal to the total number of guests."
+            );
+            window.location.href = "./";
+          }
+        });
+    </script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
