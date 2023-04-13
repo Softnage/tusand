@@ -101,7 +101,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(15, 23, 43, 0.192);
+  background: rgba(0, 0, 0, 0);
   z-index: 1;
 }
 
@@ -116,6 +116,10 @@
 
 .carousel-item img {
   height: 90vh;
+}
+
+.bg-col {
+  background-color: rgb(38, 38, 70);
 }
 
 @media (max-width: 768px) {

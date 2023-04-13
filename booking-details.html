@@ -167,10 +167,10 @@
                 <div class="details-card p-4">
                   <h3>Tusand Hotel</h3>
                   <div class="dw text-dark">
-                    <p><strong>Name:</strong> <span id="full-name"></span></p>
+                    <p><strong>Name:</strong> <span id="name"></span></p>
                     <p>
                       <strong>Phone Number:</strong>
-                      <span id="phone-number"></span>
+                      <span id="phone"></span>
                     </p>
                     <p>
                       <strong>Check-In:</strong> <span id="check-in"></span>
@@ -184,23 +184,9 @@
                   <h3>Terms & Conditions</h3>
                   <div class="text-dark dww">
                     <p>
-                      I acknowledge that I have read, understand, and agree to
-                      comply with all of the policies and procedures set forth
-                      by THE BOAZ EXECUTIVE PLACE including but not limited to
-                      check-in and check-out times, payment policies,
-                      cancellation policy, occupancy limits, pet policy, smoking
-                      policy, noise policy, housekeeping policy, and damage
-                      policy. I agree to pay any additional fees or charges
-                      incurred during my stay and accept responsibility for any
-                      damages caused by me or my guests.
-                    </p>
-                    <p>
-                      I understand that failure to comply with these policies
-                      and procedures may result in additional charges, eviction,
-                      and/or forfeiture of my security deposit. I also
-                      acknowledge that I have been provided with contact
-                      information for the lodging provider in case of any
-                      questions or concerns during my stay
+                      I agree to pay any additional fees or charges incurred
+                      during my stay and accept responsibility for any damages
+                      caused by me or my guests.
                     </p>
                   </div>
                 </div>
@@ -212,7 +198,7 @@
                   </h3>
                   <p>
                     <strong>Room Type:</strong>
-                    <span id="room-type">hhhhhhhhhhhh</span>
+                    <span id="room-type"></span>
                   </p>
 
                   <p>
@@ -231,9 +217,7 @@
                     class="flex"
                     style="border-top: 1px solid gray; padding: 5px"
                   >
-                    <h4>
-                      <strong>Total Price:</strong>
-                    </h4>
+                    <h4><strong>Total Price:</strong> $</h4>
                     <h3>
                       <span id="total-price"></span>
                     </h3>
@@ -368,6 +352,75 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById("name").textContent = params.get("name");
+      document.getElementById("phone").textContent = params.get("phone_number");
+      document.getElementById("room-type").textContent =
+        params.get("room_type");
+      document.getElementById("check-in").textContent =
+        params.get("arrival_date");
+      document.getElementById("check-out").textContent =
+        params.get("departure_date");
+      document.getElementById("number-of-guests").textContent =
+        params.get("number_of_guests");
+      document.getElementById("number-of-adults").textContent =
+        params.get("number_of_adults");
+      document.getElementById("number-of-children").textContent =
+        params.get("number_of_children");
+      document.getElementById("total-price").textContent =
+        params.get("total_price");
+      document.getElementById("number-of-nights").textContent =
+        params.get("number_of_nights");
+    </script>
+
+    <script>
+      const confirmButton = document.getElementById("confirm-booking");
+
+      confirmButton.addEventListener("click", () => {
+        const params = new URLSearchParams(window.location.search);
+        const data = {
+          name: params.get("name"),
+          phone_number: params.get("phone_number"),
+          room_type: params.get("room_type"),
+          arrival_date: params.get("arrival_date"),
+          departure_date: params.get("departure_date"),
+          number_of_guests: params.get("number_of_guests"),
+          number_of_adults: params.get("number_of_adults"),
+          number_of_children: params.get("number_of_children"),
+          total_price: params.get("total_price"),
+        };
+
+        fetch("api/sr", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": "{{ csrf_token() }}",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => {
+            if (response.status === 200) {
+              alert(
+                "Reservation request made successfully...our customer service personnel would contact you shortly."
+              );
+              window.location.href = "./";
+            } else {
+              alert(
+                "There was an error confirming the booking. Please try again later."
+              );
+            }
+          })
+          .catch((error) => {
+            console.error("Error confirming booking:", error);
+            alert(
+              "There was an error confirming the booking. Please try again later."
+            );
+            console.error(error);
+          });
+      });
+    </script>
 
     <script>
       var today = new Date().toISOString().split("T")[0];
