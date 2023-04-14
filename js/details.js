@@ -21,16 +21,26 @@ form.addEventListener("submit", (event) => {
 
   // Calculate the total price
   const roomPrices = {
-    Standard: 90,
-    Executive: 140,
-    Suite: 105,
+    Normal: 130,
+    Normal_Standard: 150,
+    Standard: 180,
+    Deluxe: 200,
+    Deluxe_Standard: 250,
+    Executive: 300,
   };
 
+  const oneDay = 24 * 60 * 60 * 1000;
   const pricePerNight = roomPrices[roomType];
   const startDate = new Date(Date.parse(checkIn));
   const endDate = new Date(Date.parse(checkOut));
-  const numNights = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
-  const totalPrice = parseInt(pricePerNight * numNights);
+  const numNights = Math.ceil((endDate - startDate) / oneDay);
+
+  let totalPrice;
+  if (numNights === 0) {
+    totalPrice = pricePerNight;
+  } else {
+    totalPrice = parseInt(pricePerNight * numNights);
+  }
 
   // Display the values in the console (for testing purposes)
   console.log("Full Name:", fullName);

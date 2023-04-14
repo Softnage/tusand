@@ -179,6 +179,7 @@
                         type="text"
                         class="form-control datetimepicker-input"
                         id="arrival_date"
+                        name="arrival_date"
                         placeholder="Check in"
                         min="<?php echo date('Y-m-d'); ?>"
                         required
@@ -194,6 +195,7 @@
                         class="form-control datetimepicker-input"
                         placeholder="Check out"
                         id="departure_date"
+                        name="departure_date"
                         required
                         onfocus="(this.type='date', this.value='')"
                       />
@@ -204,15 +206,21 @@
                       <select
                         name="room_type"
                         id="room_type"
+                        name="room_type"
                         class="form-control"
                         required
                       >
                         <option value="" disabled selected>
                           Select Room Type
                         </option>
-                        <option value="suite">Suite</option>
-                        <option value="Executive Room">Executive Room</option>
-                        <option value="Standard Room">Standard Room</option>
+                        <option value="Normal">Normal Room</option>
+                        <option value="Normal_Standard">
+                          Normal Standard Room
+                        </option>
+                        <option value="Standard">Standard Room</option>
+                        <option value="Deluxe">Deluxe</option>
+                        <option value="Deluxe_Standard">Deluxe Standard</option>
+                        <option value="Executive">Executive Room</option>
                       </select>
                     </div>
                   </div>
@@ -222,6 +230,7 @@
                         type="number"
                         class="form-control"
                         id="number_of_guests"
+                        name="number_of_guests"
                         placeholder="Number of Guest"
                         min="1"
                         required
@@ -527,5 +536,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/details.js"></script>
   </body>
 </html>

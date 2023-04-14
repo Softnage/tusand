@@ -177,6 +177,7 @@
                         type="text"
                         class="form-control datetimepicker-input"
                         id="arrival_date"
+                        name="arrival_date"
                         placeholder="Check in"
                         min="<?php echo date('Y-m-d'); ?>"
                         required
@@ -192,6 +193,7 @@
                         class="form-control datetimepicker-input"
                         placeholder="Check out"
                         id="departure_date"
+                        name="departure_date"
                         required
                         onfocus="(this.type='date', this.value='')"
                       />
@@ -202,15 +204,21 @@
                       <select
                         name="room_type"
                         id="room_type"
+                        name="room_type"
                         class="form-control"
                         required
                       >
                         <option value="" disabled selected>
                           Select Room Type
                         </option>
-                        <option value="suite">Suite</option>
-                        <option value="Executive Room">Executive Room</option>
-                        <option value="Standard Room">Standard Room</option>
+                        <option value="Normal">Normal Room</option>
+                        <option value="Normal_Standard">
+                          Normal Standard Room
+                        </option>
+                        <option value="Standard">Standard Room</option>
+                        <option value="Deluxe">Deluxe</option>
+                        <option value="Deluxe_Standard">Deluxe Standard</option>
+                        <option value="Executive">Executive Room</option>
                       </select>
                     </div>
                   </div>
@@ -220,6 +228,7 @@
                         type="number"
                         class="form-control"
                         id="number_of_guests"
+                        name="number_of_guests"
                         placeholder="Number of Guest"
                         min="1"
                         required
@@ -283,12 +292,12 @@
                   <img class="img-fluid" src="img/room-1.jpg" alt="" />
                   <small
                     class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4"
-                    >From ₵21/Night</small
+                    >₵130/Night</small
                   >
                 </div>
                 <div class="p-4 mt-2">
                   <div class="d-flex justify-content-between mb-3">
-                    <h5 class="mb-0">Standard Room</h5>
+                    <h5 class="mb-0">Normal Room</h5>
                     <div class="ps-2">
                       <small class="fa fa-star text-primary"></small>
                       <small class="fa fa-star text-primary"></small>
@@ -328,12 +337,12 @@
                   <img class="img-fluid" src="img/room-2.jpg" alt="" />
                   <small
                     class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4"
-                    >From ₵18/Night</small
+                    >₵150/Night</small
                   >
                 </div>
                 <div class="p-4 mt-2">
                   <div class="d-flex justify-content-between mb-3">
-                    <h5 class="mb-0">Executive Suite</h5>
+                    <h5 class="mb-0">Normal Standard Room</h5>
                     <div class="ps-2">
                       <small class="fa fa-star text-primary"></small>
                       <small class="fa fa-star text-primary"></small>
@@ -373,12 +382,12 @@
                   <img class="img-fluid" src="img/room-3.jpg" alt="" />
                   <small
                     class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4"
-                    >From ₵27/Night</small
+                    >₵180/Night</small
                   >
                 </div>
                 <div class="p-4 mt-2">
                   <div class="d-flex justify-content-between mb-3">
-                    <h5 class="mb-0">Suit</h5>
+                    <h5 class="mb-0">Standard Room</h5>
                     <div class="ps-2">
                       <small class="fa fa-star text-primary"></small>
                       <small class="fa fa-star text-primary"></small>
@@ -418,12 +427,12 @@
                   <img class="img-fluid" src="img/room-1.jpg" alt="" />
                   <small
                     class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4"
-                    >From ₵21/Night</small
+                    >₵200/Night</small
                   >
                 </div>
                 <div class="p-4 mt-2">
                   <div class="d-flex justify-content-between mb-3">
-                    <h5 class="mb-0">Standard Room</h5>
+                    <h5 class="mb-0">Deluxe Room</h5>
                     <div class="ps-2">
                       <small class="fa fa-star text-primary"></small>
                       <small class="fa fa-star text-primary"></small>
@@ -463,12 +472,12 @@
                   <img class="img-fluid" src="img/room-2.jpg" alt="" />
                   <small
                     class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4"
-                    >From ₵18/Night</small
+                    >₵250/Night</small
                   >
                 </div>
                 <div class="p-4 mt-2">
                   <div class="d-flex justify-content-between mb-3">
-                    <h5 class="mb-0">Executive Suite</h5>
+                    <h5 class="mb-0">Deluxe Standard Room</h5>
                     <div class="ps-2">
                       <small class="fa fa-star text-primary"></small>
                       <small class="fa fa-star text-primary"></small>
@@ -508,12 +517,12 @@
                   <img class="img-fluid" src="img/room-3.jpg" alt="" />
                   <small
                     class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4"
-                    >From ₵27/Night</small
+                    >₵300/Night</small
                   >
                 </div>
                 <div class="p-4 mt-2">
                   <div class="d-flex justify-content-between mb-3">
-                    <h5 class="mb-0">Suit</h5>
+                    <h5 class="mb-0">Executive Room</h5>
                     <div class="ps-2">
                       <small class="fa fa-star text-primary"></small>
                       <small class="fa fa-star text-primary"></small>
@@ -698,5 +707,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/details.js"></script>
   </body>
 </html>

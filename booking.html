@@ -249,9 +249,16 @@
                           <option value="" disabled selected>
                             Select Room Type
                           </option>
-                          <option value="suite">Suite</option>
-                          <option value="Executive">Executive Room</option>
+                          <option value="Normal">Normal Room</option>
+                          <option value="Normal_Standard">
+                            Normal Standard Room
+                          </option>
                           <option value="Standard">Standard Room</option>
+                          <option value="Deluxe">Deluxe</option>
+                          <option value="Deluxe_Standard">
+                            Deluxe Standard
+                          </option>
+                          <option value="Executive">Executive Room</option>
                         </select>
                       </div>
                     </div>
@@ -318,7 +325,7 @@
                           id="adults"
                           name="number_of_adults"
                           placeholder="Adults"
-                          min="1"
+                          min="0"
                           required
                         />
                         <label for="email">Adults</label>
@@ -332,7 +339,7 @@
                           id="children"
                           name="number_of_children"
                           placeholder="Children"
-                          min="1"
+                          min="0"
                           required
                         />
                         <label for="email">Children</label>
