@@ -200,7 +200,10 @@
                     <strong>Room Type:</strong>
                     <span id="room-type"></span>
                   </p>
-
+                  <p>
+                    <strong>Number of Nights:</strong>
+                    <span id="number-of-nights"></span>&nbsp; nights
+                  </p>
                   <p>
                     <strong>Number of Guests:</strong>
                     <span id="number-of-guests"></span>
@@ -359,6 +362,8 @@
       document.getElementById("phone").textContent = params.get("phone_number");
       document.getElementById("room-type").textContent =
         params.get("room_type");
+      document.getElementById("number-of-nights").textContent =
+        params.get("number_of_nights");
       document.getElementById("check-in").textContent =
         params.get("arrival_date");
       document.getElementById("check-out").textContent =
@@ -392,7 +397,7 @@
           total_price: params.get("total_price"),
         };
 
-        fetch("api/sr", {
+        fetch("https://tusand.hotelipad.com/api/sr", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

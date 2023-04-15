@@ -53,5 +53,5 @@ form.addEventListener("submit", (event) => {
   console.log("Number of Children:", numChildren);
 
   // Redirect to the booking details page with the form data as URL parameters
-  window.location.href = `./booking-details.html?room_type=${roomType}&arrival_date=${checkIn}&departure_date=${checkOut}&number_of_guests=${numGuests}&number_of_adults=${numAdults}&number_of_children=${numChildren}&total_price=${totalPrice}&name=${fullName}&number_of_nights=${numNights}&phone_number=${phoneNumber}`;
+  window.location.href = `./booking-details.html?room_type=${roomType}&number_of_nights=${numNights}&arrival_date=${checkIn}&departure_date=${checkOut}&number_of_guests=${numGuests}&number_of_adults=${numAdults}&number_of_children=${numChildren}&total_price=${totalPrice}&name=${fullName}&number_of_nights=${numNights}&phone_number=${phoneNumber}`;
 });
