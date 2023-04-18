@@ -169,6 +169,25 @@
   width: 100%;
 }
 
+.img1 {
+  width: 100vw !important;
+  height: 30vh !important;
+}
+
+.img2 {
+  width: 70vw !important;
+  height: 30vh;
+}
+
+.img3 {
+  width: 40vw !important;
+  margin-top: 12.5vh;
+}
+
+.img4 {
+  width: 15vw !important;
+}
+
 @media (max-width: 768px) {
   #header-carousel .carousel-item {
     position: relative;
