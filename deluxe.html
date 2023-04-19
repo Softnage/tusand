@@ -74,13 +74,9 @@
           <div class="col-lg-9">
             <div class="row gx-0 bg-white d-none d-lg-flex">
               <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center py-2 me-4">
-                  <i class="fa fa-envelope text-primary me-2"></i>
-                  <p class="mb-0">info@example.com</p>
-                </div>
                 <div class="h-100 d-inline-flex align-items-center py-2">
                   <i class="fa fa-phone-alt text-primary me-2"></i>
-                  <p class="mb-0">0244654458</p>
+                  <p class="mb-0">0241418645</p>
                 </div>
               </div>
               <div class="col-lg-5 px-5 text-end">
@@ -170,6 +166,7 @@
               <div class="standard-heading">
                 <h1>Deluxe Room</h1>
                 <p><strong>Bed:</strong> King Size Bed</p>
+                <p><strong>Breakfast:</strong> 1</p>
                 <p><strong>TV:</strong>Yes</p>
                 <p><strong>Air Condition:</strong>Yes</p>
                 <p><strong>Fridge:</strong>Yes</p>
@@ -188,7 +185,7 @@
       <!-- Footer Start -->
       <div
         class="container-fluid bg-dark text-light footer wow fadeIn"
-        data-wow-delay="0.1s mt-5"
+        data-wow-delay="0.1s"
       >
         <div class="container pb-5">
           <div class="row g-5">
@@ -216,26 +213,7 @@
                 <i class="fa fa-map-marker-alt me-3"></i> Akyawkrom Along Ejisu
                 – Juaben Road
               </p>
-              <p class="mb-2">
-                <i class="fa fa-phone-alt me-3"></i>+233545846774
-              </p>
-              <p class="mb-2">
-                <i class="fa fa-envelope me-3"></i>info@example.com
-              </p>
-              <div class="d-flex pt-2">
-                <a class="btn btn-outline-light btn-social" href=""
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a class="btn btn-outline-light btn-social" href=""
-                  ><i class="fab fa-facebook-f"></i
-                ></a>
-                <a class="btn btn-outline-light btn-social" href=""
-                  ><i class="fab fa-youtube"></i
-                ></a>
-                <a class="btn btn-outline-light btn-social" href=""
-                  ><i class="fab fa-linkedin-in"></i
-                ></a>
-              </div>
+              <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0241418645</p>
             </div>
             <div class="col-lg-5 col-md-12">
               <div class="row gy-5 g-4">
@@ -252,13 +230,20 @@
                   <h6
                     class="section-title text-start text-primary text-uppercase mb-4"
                   >
-                    Services
+                    Facilities
                   </h6>
-                  <a class="btn btn-link" href="#services">Food & Restaurant</a>
-                  <a class="btn btn-link" href="#services">Spa & Fitness</a>
-                  <a class="btn btn-link" href="#services">Sports & Gaming</a>
-                  <a class="btn btn-link" href="#services">Event & Party</a>
-                  <a class="btn btn-link" href="#services">GYM & Yoga</a>
+                  <a class="btn btn-link" href="facility.html#conference"
+                    >Conference Room</a
+                  >
+                  <a class="btn btn-link" href="facility.html#recreational"
+                    >Recreational Center</a
+                  >
+                  <a class="btn btn-link" href="facility.html#parking"
+                    >Free Parking</a
+                  >
+                  <a class="btn btn-link" href="facility.html#bar"
+                    >Bar & Restaurant</a
+                  >
                 </div>
               </div>
             </div>
@@ -302,32 +287,6 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <script>
-      var today = new Date().toISOString().split("T")[0];
-      document.getElementById("arrival_date").setAttribute("min", today);
-    </script>
-
-    <script>
-      document
-        .getElementById("reservation-form")
-        .addEventListener("submit", function (event) {
-          var numGuests = parseInt(
-            document.getElementById("number_of_guests").value
-          );
-
-          var numAdults = parseInt(document.getElementById("adults").value);
-          var numChildren = parseInt(document.getElementById("children").value);
-
-          if (numAdults + numChildren !== numGuests) {
-            event.preventDefault();
-            alert(
-              "Number of adults and children must be equal to the total number of guests."
-            );
-            window.location.href = "./";
-          }
-        });
-    </script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
