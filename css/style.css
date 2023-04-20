@@ -279,7 +279,7 @@
 /*** Service ***/
 .service-item {
   position: relative;
-  height: 80vh;
+  height: 60vh;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -545,6 +545,10 @@
 }
 
 @media only screen and (max-width: 800px) {
+  .service-item {
+    height: 90vh;
+  }
+
   .service-item .service-icon {
     left: 35vw;
   }
