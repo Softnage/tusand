@@ -279,7 +279,7 @@
 /*** Service ***/
 .service-item {
   position: relative;
-  height: 60vh;
+  height: 70vh;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -542,6 +542,14 @@
 .more-text p {
   width: 80%;
   text-align: justify;
+}
+
+.h {
+  margin-top: 15vh;
+}
+
+.hh {
+  margin-top: 30vh;
 }
 
 @media only screen and (max-width: 800px) {
